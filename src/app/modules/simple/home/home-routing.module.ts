@@ -3,7 +3,6 @@ import { Routes, RouterModule} from '@angular/router'
 
 //Importamos el componente para la ruta
 import { HomeComponent } from './components/home/home.component'
-import { PageNotFoundComponent } from './../../shared/components/page-not-found/page-not-found.component'
 
 const routes: Routes = [
   {
