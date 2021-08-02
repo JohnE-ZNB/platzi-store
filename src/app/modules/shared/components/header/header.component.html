@@ -1,0 +1,8 @@
+<nav>
+  <section>Logo</section>
+  <section>
+    <ul *ngFor="let getMenu of menu ">
+      <li><a routerLink='{{ getMenu.route }}' routerLinkActive="router-link-active" >{{ getMenu.name }}</a></li>
+    </ul>
+  </section>
+</nav>

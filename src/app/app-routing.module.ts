@@ -1,7 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+import { PageNotFoundComponent } from './modules/shared/components/page-not-found/page-not-found.component'
+
+const routes: Routes = [
+  {
+    path: '',
+    loadChildren: () =>
+      import('./modules/simple/home/home.module').then((m) => m.HomeModule),
+  },
+  {
+    path: '**',
+    component: PageNotFoundComponent,
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
