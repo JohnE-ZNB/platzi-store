@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 
+//Incorporamos los modulos en el modulo principal
 import { CoreModule } from './modules/core/core.module';
 import { SharedModule } from './modules/shared/shared.module'
 import { HomeModule } from './modules/simple/home/home.module';

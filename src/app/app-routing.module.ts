@@ -10,6 +10,10 @@ const routes: Routes = [
       import('./modules/simple/home/home.module').then((m) => m.HomeModule),
   },
   {
+    path: 'productos',
+    loadChildren: () => import('./modules/simple/products/products.module').then((m) => m.ProductsModule),
+  },
+  {
     path: '**',
     component: PageNotFoundComponent,
   },
