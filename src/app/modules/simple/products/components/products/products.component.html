@@ -1,1 +1,7 @@
-<p>products works!</p>
+<section *ngFor="let item of products">
+  <!-- [producto] es la variable @input del componente product que recibe lo que enviemos desde el padre en este caso el componente products -->
+  <!-- (productoClick) es la variable @Output del componente product y EMITE informacion para que el padre lo obtenga en este caso el componente products-->
+  <!-- "mostrarInfo" es un metodo del componente products que envia dentro de la variable $events lo que recibio de (productoClick) del componente product -->
+  <app-product (productoClick)="mostrarInfo($event)" [producto]=item></app-product>
+</section>
+

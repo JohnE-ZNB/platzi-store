@@ -1,0 +1,16 @@
+<section class="product-card">
+  <section class="product-card-img">
+      <img [src]="producto.image" alt="" width="130" height="150">
+  </section>
+  <section class="product-card-container">
+    <section class="product-card-title">{{ producto.title }}</section>
+    <section class="product-card-price">{{ producto.price }}</section>
+    <section class="product-card-description">{{ producto.description}}</section>
+  </section>
+  <section class="product-card-footer">
+    <!-- No es necesario pasar el producto ni nada porque angular internamente detecta el objecto -->
+    <button (click)="addCart()">Agregar</button>
+    <!-- <button (click)="addCartTwo(producto.description)">Agregar 2</button> -->
+    <a [routerLink]="['/productos', producto.id]">Ver detalle</a>
+  </section>
+</section>

@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 
 //todo modulo debe tener su sistema de rutas y por eso se debe IMPORTAR
 import { ProductsRoutingModule } from './products-routing.module';
-import { ProductsComponent } from './components/products/products.component'
+import { ProductsComponent } from './components/products/products.component';
+import { ProductComponent } from './components/product/product.component'
 
 
 
 @NgModule({
   declarations: [
-    ProductsComponent
+    ProductsComponent,
+    ProductComponent
   ],
   imports: [
     CommonModule,

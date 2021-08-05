@@ -1,62 +1,28 @@
 import { Injectable } from '@angular/core';
+//Nos permite usar un cliente de modulo que esta importado en app.module.ts
+import { HttpClient } from '@angular/common/http'
 
+//Importamos el modelo porque toca TIPAR la respuesta del servicio y porque pasa eso? mira getProductsAll()
 import { ProductModel } from './../models/product.model'
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductsService {
-  constructor() {}
-  products: ProductModel[] = [
-    {
-      id: '1',
-      image: 'assets/images/camiseta.png',
-      title: 'Camiseta',
-      price: 80000,
-      description: 'bla bla bla bla bla',
-    },
-    {
-      id: '2',
-      image: 'assets/images/hoodie.png',
-      title: 'Hoodie',
-      price: 80000,
-      description: 'bla bla bla bla bla',
-    },
-    {
-      id: '3',
-      image: 'assets/images/mug.png',
-      title: 'Mug',
-      price: 80000,
-      description: 'bla bla bla bla bla',
-    },
-    {
-      id: '4',
-      image: 'assets/images/pin.png',
-      title: 'Pin',
-      price: 80000,
-      description: 'bla bla bla bla bla',
-    },
-    {
-      id: '5',
-      image: 'assets/images/stickers1.png',
-      title: 'Stickers',
-      price: 80000,
-      description: 'bla bla bla bla bla',
-    },
-    {
-      id: '6',
-      image: 'assets/images/stickers2.png',
-      title: 'Stickers',
-      price: 80000,
-      description: 'bla bla bla bla bla',
-    },
-  ];
+  constructor(
+    //Inyectamos una dependencia para usar el cliente http
+    private http: HttpClient
+  ) {}
+  
 
   getAllProducts() {
-    return this.products;
+    //Resulta que la petición devuelve un object y los productos son tipo array de PRODUCT (productModel)
+    //Entons cuando producto consume el servicio su respuesta y lo que espera no hace match y como se resuelve
+    //todo <ProductModel[]>
+    return this.http.get<ProductModel[]>('https://platzi-store.herokuapp.com/products');
   }
 
   getProduct(id: string) {
-    return this.products.find((item) => id === item.id);
+    return this.http.get(`https://platzi-store.herokuapp.com/products/${id}`);
   }
 }

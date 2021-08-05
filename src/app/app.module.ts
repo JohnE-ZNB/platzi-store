@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http' //Nos permite el modulo para hacer peticiones http
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,7 +25,7 @@ import { AdminComponent } from './layout/admin/admin.component'
     AppRoutingModule,
     CoreModule,
     SharedModule,
-    //HomeModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
